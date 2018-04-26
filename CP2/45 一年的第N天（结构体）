@@ -1,0 +1,47 @@
+/* 计算天数 */
+# include <stdio.h>
+struct
+{
+	int year;
+	int month;
+	int day;
+} data;    /* 定义一个结构并声明对象为data */
+
+void main()
+{
+	int days;
+	printf("请输入日期(年、月、日)：");
+	scanf("%d, %d, %d", &data.year, &data.month, &data.day);
+	switch (data.month)
+	{
+	case 1:  days = data.day;
+		break; //31                
+	case 2:  days = data.day + 31;
+		break; //28               
+	case 3:  days = data.day + 59;
+		break;//31
+	case 4:  days = data.day + 90;
+		break;//30
+	case 5:  days = data.day + 120;
+		break;//31
+	case 6:  days = data.day + 151;
+		break;//30
+	case 7:  days = data.day + 181;
+		break;//31
+	case 8:  days = data.day + 212;
+		break;//31
+	case 9:  days = data.day + 243;
+		break;//30
+	case 10: days = data.day + 273;
+		break;//31
+	case 11: days = data.day + 304;
+		break;//30
+	case 12: days = data.day + 334;
+		break;//31
+	}
+	if (data.year % 4 == 0 && data.year % 100 != 0 || data.year % 400 == 0)
+		if (data.month >= 3)
+			days = days + 1;
+	printf("%d月%d日是%d年的第%d天.\n", data.month, data.day, data.year, days);
+	system("pause");
+}
